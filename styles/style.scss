@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'League Spartan', sans-serif;
+}
+@mixin btn {
+    box-sizing: border-box;
+    background-color: #e6e1db;
+    box-shadow: 0 3px #b9a79c;
+    border: 0;
+    border-radius: .5em;
+    height: 3em;
+}
+#flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: #3b4664;
+    height: 100vh;
+}
+#header-box {
+    color: #fff;
+    div {
+        width: 4em;
+        float: right;
+        &::before {
+            content: "\00a0\00a0 1 \00a0\00a0\00a0 2 \00a0\00a0\00a0 3 \00a0";
+            font-size: small;
+        }
+        .slider {
+            -webkit-appearance: none;
+            background: #242d42;
+            border-radius: 20px;
+            padding: 4.5px;
+            width: 3.5em;
+            height: 10px;
+            &::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                background: #d13f30;
+            }
+            &::-ms-slider-thumb {
+                width: 13px;
+                height: 13px;
+                border-radius: 50%;
+                background: #d13f30;
+            }
+        }
+    }
+    p {
+        float: right;
+        font-weight: 400;
+        font-size: small;
+        margin: 1.2em 2em 0 0;
+    }
+}
+.result-box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 23em;
+    height: 5em;
+    background: #181f32;
+    border-radius: .8em;
+    color: #fff;
+    margin-bottom: 1em;
+    div.result-slider {
+       margin: 2% 6%;
+       font-size: 2.5em;
+       font-weight: bold;
+       overflow-x: auto;
+       &::-webkit-scrollbar {
+        height: 2.5px;
+       }
+       &::-webkit-scrollbar-track {
+        background: inherit;
+       }
+       &::-webkit-scrollbar-thumb {
+        background: #d13f30;
+       }
+    }
+}
+#grid-container {
+    display: inline-grid;
+    justify-content: center;
+    align-content: center;
+    grid-template: auto auto auto auto / auto auto auto auto;
+    gap: 1.3rem;
+    background: #232d45;
+    border-radius: .8em;
+    margin: 0 auto;
+    padding: 1.2em;
+    .button {
+        width: 5em;
+        @include btn();
+    }
+    .item4 {
+        background: #647299;
+        box-shadow: 0 3px #434f73;
+        color: #fff;
+    }
+    .item17 {
+        grid-column: 1 / span 2;
+        @include btn();
+        background: #647299;
+        box-shadow: 0 3px #434f73;
+        color: #fff;
+    }
+    .item18 {
+        grid-column: 3 / span 2;
+        @include btn();
+        background: #d13f30;
+        box-shadow: 0 3px #9d281a;
+        color: #fff;
+    }
+}
+
+
+@media only screen and (max-width: 390px) and (min-width: 376px) {
+    #header-box {
+        div {
+            &::before {
+                content: "\00a0\00a0\00a0 1 \00a0\00a0\00a0\00a0\00a0 2 \00a0\00a0\00a0\00a0 3 \00a0";
+            }
+            width: 6em;
+            .slider {
+                width: 5em;
+                height: 18px;
+                padding: 2px 3px;
+            }
+            &::-webkit-slider-thumb {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        p {
+            font-size: 1em;
+            margin: 1.2em 1.5em 0 0;
+        }
+        h1 {
+            font-size: 3em;
+        }
+    }
+    .result-box {
+        height: 7em;
+        width: 22em;
+        margin-bottom: 2em;
+        div.result-slider {
+            font-size: 3em;
+        }
+    }
+    #grid-container {
+        .button {
+            width: 4.7em;
+            height: 5.5em;
+        }
+        .item17, .item18 {
+            height: 5.5em;
+        }
+    }
+};
+
+@media only screen and (max-width: 375px) and (min-width: 350px) {
+    #header-box {
+        margin-bottom: -1em;
+        p {
+            font-size: .8em;
+            margin: 1.2em 1.5em 0 0;
+        }
+        h1 {
+            font-size: 2.7em;
+        }
+    }
+    .result-box {
+        height: 6em;
+        width: 21.6em;
+        div.result-slider {
+            font-size: 2.5em;
+        }
+    }
+    #grid-container {
+        .button {
+            width: 4.6em;
+            height: 4.8em;
+        }
+        .item17, .item18 {
+            height: 4.8em;
+        }
+    }
+}
